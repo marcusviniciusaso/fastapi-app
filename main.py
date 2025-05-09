@@ -30,3 +30,7 @@ def verify_password(credentials: HTTPBasicCredentials = Depends(security)):
 @app.get("/")
 async def home():
     return "Hello, FastAPI!"
+
+@app.get("/hello")
+async def hello(username: str = Depends(verify_password)):
+    return {"message": f"Hello, {username}!"}
