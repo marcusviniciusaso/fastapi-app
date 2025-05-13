@@ -34,3 +34,9 @@ async def home():
 @app.get("/hello")
 async def hello(username: str = Depends(verify_password)):
     return {"message": f"Hello, {username}!"}
+
+items = []
+
+@app.get("/items")
+async def get_items():
+    return items
